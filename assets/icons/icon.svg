@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="512" y1="0" x2="512" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0F1E2F"/>
+      <stop offset="1" stop-color="#0A1422"/>
+    </linearGradient>
+    <radialGradient id="vignette" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#00000000"/>
+      <stop offset="100%" stop-color="#00000055"/>
+    </radialGradient>
+
+    <linearGradient id="hammerGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#556173"/>
+      <stop offset="100%" stop-color="#2B3645"/>
+    </linearGradient>
+
+    <linearGradient id="boltGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#46E0FF"/>
+      <stop offset="100%" stop-color="#00A8FF"/>
+    </linearGradient>
+
+    <filter id="boltGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="innerShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feOffset dx="0" dy="6"/>
+      <feGaussianBlur stdDeviation="12" result="offset-blur"/>
+      <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"/>
+      <feFlood flood-color="#000000" flood-opacity="0.35" result="color"/>
+      <feComposite operator="in" in="color" in2="inverse" result="shadow"/>
+      <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect x="64" y="64" width="896" height="896" rx="160" ry="160" fill="url(#bgGrad)" filter="url(#innerShadow)"/>
+  <rect x="64" y="64" width="896" height="896" rx="160" ry="160" fill="url(#vignette)"/>
+
+  <!-- Hammer head -->
+  <rect x="202.00" y="200.00" width="620.00" height="280.00" rx="64" fill="url(#hammerGrad)"/>
+  <!-- subtle top highlight -->
+  <rect x="210.00" y="208.00" width="604.00" height="98.00" rx="56" fill="#FFFFFF" opacity="0.06"/>
+
+  <!-- Handle -->
+  <rect x="427.00" y="470.00" width="170.00" height="330.00" rx="56" fill="url(#hammerGrad)"/>
+  <rect x="433.00" y="478.00" width="158.00" height="314.00" rx="50" fill="#000" opacity="0.07"/>
+
+  <!-- Lightning bolt (centered, slightly right-leaning) -->
+  <g filter="url(#boltGlow)" transform="translate(0,0)">
+    <path d="M 625 240
+             L 520 460
+             L 585 460
+             L 460 820
+             L 690 520
+             L 620 520
+             L 705 340 Z"
+          fill="url(#boltGrad)"/>
+  </g>
+</svg>
+
