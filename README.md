@@ -1,20 +1,30 @@
-# Trade Helper
+# Trader Tools by ThorLab
 
-Простой помощник для быстрого поиска и отслеживания тикеров на биржах, построен на PyQt6.
+<p align="center">
+<img width="679" height="189" alt="image" src="https://github.com/user-attachments/assets/3cc64c56-508d-490e-8016-ecfc9f5a7fa0" />
+</p>
+Софт, автоматически,  по тикеру ищет листинги на биржах, открывает ссылки, отслеживает цены и дельту. Для работы не нужны никакие данные: ни API ключи, ни прокси, построен на PyQt6.
+<p>&nbsp;</p>
+Поддерживает следующие биржи: <b>Binance, Bitget, Bybit, HyperLiquid, Gate, Mexc, Okx</b>
 
+<p>&nbsp;</p>
 
-Поддерживаемые биржи: **Gate.io**, **Hyperliquid**, **Binance**, **Bitget**, **Bybit**, **Mexc**, **Okex**
+<table align="center">
+  <tr>
+    <td align="center" valign="middle">
+      <img src="https://i.imgur.com/9jrRDCj.png" height="380" alt="Главное окно">
+    </td>
+    <td align="center" valign="middle">
+      <img src="https://i.imgur.com/Qg1qXeT.png" height="380" alt="Окно настроек">
+    </td>
+  </tr>
+</table>
 
 ### Возможности
-- Открывать найденные ссылки на биржи в браузере
-- Выбор режима открытия: в новом окне или в текущем
-- Режим «Отслеживать цены» с таблицей обновлений
-- Отображение дельты цены с момента старта отслеживания
-- Выбор бирж для открытия тикеров/отслеживания
-- Выбор Интервал обновления цен
-- Прозрачность окна и тема (Светлая / Тёмная)
-- Always-on-top окно
-- Хоткей для быстрого старта
+- Ищет листинги на фьючах/споте по тикеру 
+- Отслеживает актуальные цены и дельту с момента запуска
+- Автоматически открывает ссылки в браузере
+- Можно запустить через хоткей из буфера обмена
 ---
 
 ## Как запустить (способ 1 — через Git)
@@ -29,7 +39,7 @@ cd D:\Apps\TradeHelper
 
 3) Склонируйте репозиторий:
 ```powershell
-git clone <URL_ВАШЕГО_РЕПОЗИТОРИЯ> .
+git clone https://github.com/th0masi/trader-tools.git
 ```
 
 4) Создайте виртуальное окружение и установите зависимости:
@@ -78,18 +88,11 @@ python app.py
 pip install -r requirements.txt
 ```
 
-2) Убедитесь, что в `assets/icons/` есть иконка `icon.ico` (или `trade_helper.ico`).
-
-3) Запустите сборку:
+2) Запустите сборку:
 ```powershell
 ./build.ps1
 ```
 Готовый файл появится в папке `dist` (имя: `Trade Helper.exe`).
-
-Подсказка: при желании можно указать параметры:
-```powershell
-./build.ps1 -OneFile:$true -Entry "app.py"
-```
 
 ---
 
@@ -97,7 +100,7 @@ pip install -r requirements.txt
 
 - `app.py` — точка входа
 - `core/gui` — GUI-модули (`window.py`, `settings.py`, `styles.py`, `utils.py`)
-- `core/exchange` — клиенты бирж (Gate, Hyperliquid)
+- `core/exchange` — клиенты бирж
 - `core/monitor.py` — агрегатор запросов
 - `assets/icons` — иконки (`icon.ico`, `icon.svg`)
 
